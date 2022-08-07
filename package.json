@@ -1,0 +1,24 @@
+{
+  "name": "multilingual-conv",
+  "version": "0.0.1",
+  "description": "A converter between multilingual markup files and csv",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./src/ondev/dev.js",
+    "build": "npx tsc-build",
+    "start": "node ./dist/index.js",
+    "dev": "ts-node ./src/index.ts",
+    "note": "npx dnotebook"
+  },
+  "dependencies": {
+    "@coolgk/csv": "^2.0.7",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/xml2js": "^0.4.11"
+  }
+}
