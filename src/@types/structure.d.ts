@@ -3,7 +3,7 @@ interface XliffLoaded {
 }
 
 interface XliffStructure {
-  '$': {
+  $: {
     xmlns: string
     version: string
     [attrs: string]: string
@@ -12,7 +12,7 @@ interface XliffStructure {
 }
 
 interface XliffFileStructure {
-  '$': {
+  $: {
     id: string
     original: string
     'source-language': string
@@ -29,7 +29,7 @@ interface XliffHeaderStructure {
 }
 
 interface XliffHeaderToolStructure {
-  '$': {
+  $: {
     'tool-id': string
     'tool-name': string
     'tool-version': string
@@ -43,7 +43,7 @@ interface XliffBodyStructure {
 }
 
 interface XliffGroupStructure {
-  '$': {
+  $: {
     id: string
     [attrs: string]: string
   }
@@ -62,7 +62,7 @@ interface XliffContextStructure {
 }
 
 interface XliffTransUnitStructure {
-  '$': {
+  $: {
     id: string
     [attrs: string]: string
   }
@@ -81,9 +81,128 @@ interface XliffAltTransStructure {
 }
 
 interface XliffTransUnitNoteStructure {
-  '_': string
-  '$': {
+  _: string
+  $: {
     from: string
     priority: string
+  }
+}
+
+interface TmxLoaded {
+  tmx: TmxStructure
+}
+
+interface TmxStructure {
+  $: {
+    version: string
+  }
+  header: TmxHeaderStructure[]
+  body: TmxBodyStructure[]
+}
+
+interface TmxHeaderStructure {
+  $: {
+    creationtool: string
+    creationtoolversion: string
+    segtype: string
+    adminlang: string
+    srclang: string
+    datatype: string
+    creationdate: string
+  }
+  prop: {
+    _: string
+    $: {
+      type: string
+    }
+  }
+}
+
+interface TmxBodyStructure {
+  tu: TmxTransUnitStructure[]
+}
+
+interface TmxTransUnitStructure {
+  $: {
+    tuid: string
+  }
+  tuv: TmxTransUnitValueStructure[]
+}
+
+interface TmxTransUnitValueStructure {
+  $: {
+    'xml:lang': string
+  }
+  prop?: TmxTranUnitPropStructure[]
+  seg: string[]
+}
+
+interface TmxTranUnitPropStructure {
+  _: string
+  $: {
+    type: string
+  }  
+}
+
+interface TbxLoaded {
+  martif: TbxMartifStructure
+}
+
+interface TbxMartifStructure {
+  $: {
+    'xml:lang': string
+    type: string
+  }
+  text: TbxTextStructure[]
+}
+
+interface TbxTextStructure {
+  $: {
+
+  }
+  body: TbxBodyStructure[]
+}
+
+interface TbxBodyStructure {
+  $: {
+
+  }
+  termEntry: TbxTermEntryStructure[]
+}
+
+interface TbxTermEntryStructure {
+  $: {
+  
+  }
+  descrip: TbxDescriptionStructure[]
+  langSet: TbxLangSetStructure[]
+}
+
+interface TbxDescriptionStructure {
+  _: string
+  $: {
+    type: string
+  }
+}
+
+interface TbxLangSetStructure {
+  $: {
+    'xml:lang': string
+  }
+  tig: TbxTigStructure[]
+}
+
+interface TbxTigStructure {
+  $: {
+
+  }
+  term: string[]
+  termNote: TbxTermNoteStructure[]
+}
+
+interface TbxTermNoteStructure {
+  _: string
+  $: {
+    type: string
   }
 }

@@ -1,5 +1,7 @@
 declare type CountType = 'word' | 'chara' | 'both'
 
+declare type ProcessType = 'read' | 'write' | 'update'
+
 // cat
 declare interface XliffFileStats {
   name: string
@@ -21,13 +23,14 @@ declare type CatDataType = 'XLIFF' | 'TMX' | 'TBX' | ''
 declare interface TranslationContent {
   file: string
   alllangs: Set<string>
-  units: TranslationUnit[][]
+  // units: TranslationUnit[][]
+  units: sring[][]
 }
 
-declare interface TranslationUnit {
-  lang: string
-  text: string
-}
+// declare interface TranslationUnit {
+//   lang: string
+//   text: string
+// }
 
 
 declare interface CatUpdateLog {
