@@ -14,6 +14,7 @@ export class XliffProc {
     this.contents = [] as TranslationContent[]
   }
 
+  // **
   public processWithMultilingualXml(path: string, process: ProcessType): Promise<boolean> {
     const extension = path.split('.').pop()
     const xmlStr = readFileSync(path).toString()
